@@ -51,7 +51,7 @@ export const PLAYERS = {
     position: P.gato,
     situations: {
       ataque: {
-        description: 'Sale del área para ser opción de pase corto. Los dos centrales no suben — cubren el espacio central mientras él participa del juego.',
+        description: 'Si el partido lo pide, sale del área para ser opción de pase corto. Los dos centrales no suben — cubren el espacio central mientras él participa del juego.',
         arrows: [
           { d: 'M 150 410 L 150 378', color: C.ataque },
         ],
