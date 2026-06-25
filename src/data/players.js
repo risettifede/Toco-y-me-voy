@@ -159,7 +159,7 @@ export const PLAYERS = {
     position: P.nico,
     situations: {
       ataque: {
-        description: 'Espeja a Pana: se cierra al centro cuando Lucho sube. Puede subir ocasionalmente por izquierda solo si Simón le cubre la espalda.',
+        description: 'Espeja a Pana: se cierra al centro cuando Lucho sube. Puede subir por izquierda SOLO SI Simón le cubre la espalda.',
         arrows: [
           { d: 'M 102 322 L 120 322', color: C.ataque },
         ],
