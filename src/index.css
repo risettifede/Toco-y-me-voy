@@ -1,0 +1,271 @@
+/* ── Reset & Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --text:    #e6edf3;
+  --muted:   #7d8590;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+button { font-family: inherit; }
+
+/* ── Page wrapper ─────────────────────────────────────────────────────────── */
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 24px;
+}
+
+/* ── Field SVG wrapper ────────────────────────────────────────────────────── */
+.field-wrapper {
+  padding: 0 12px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.field-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Arrow animation ──────────────────────────────────────────────────────── */
+@keyframes drawArrow {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ── Pulse ring ───────────────────────────────────────────────────────────── */
+@keyframes pulseRipple {
+  0%   { transform: scale(1);   opacity: 0.45; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+.pulse-ring {
+  animation: pulseRipple 1.8s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
+/* ── HOME PAGE ────────────────────────────────────────────────────────────── */
+.home-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 10px;
+  gap: 2px;
+}
+
+.home-badge {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.home-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1;
+}
+
+.home-sub {
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Player dot hover */
+.home-dot {
+  transition: opacity 0.15s;
+}
+.home-dot:hover { opacity: 0.75; }
+.home-dot:active { opacity: 0.6; }
+
+.home-hint {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 10px;
+  letter-spacing: 0.02em;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 16px;
+  padding: 14px 16px 0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── PLAYER PAGE ──────────────────────────────────────────────────────────── */
+.player-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #58a6ff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 4px 0;
+  flex-shrink: 0;
+}
+
+.player-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.player-name-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-role-label {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-line-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Situation buttons */
+.sit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 10px 12px;
+}
+
+.sit-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 8px;
+  background: var(--surface);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sit-btn:hover {
+  border-color: var(--sc);
+  background: color-mix(in srgb, var(--sc) 8%, var(--surface));
+}
+
+.sit-btn--active {
+  background: color-mix(in srgb, var(--sc) 14%, var(--surface));
+  box-shadow: 0 0 18px color-mix(in srgb, var(--sc) 28%, transparent);
+}
+
+.sit-emoji  { font-size: 1.45rem; line-height: 1; }
+
+.sit-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+/* Description */
+.sit-description {
+  margin: 8px 12px 0;
+  padding: 13px 15px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid currentColor;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.sit-description-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.sit-hint {
+  text-align: center;
+  padding: 18px 16px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* Not found */
+.not-found {
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
