@@ -56,13 +56,6 @@ export const PLAYERS = {
           { d: 'M 150 410 L 150 378', color: C.ataque },
         ],
       },
-      defensa: {
-        description: 'Se mantiene en el arco. Achica el ángulo cuando el rival entra al área. Se desplaza por la línea de gol siguiendo la posición de la pelota.',
-        arrows: [
-          { d: 'M 150 410 L 126 410', color: C.defensa },
-          { d: 'M 150 410 L 174 410', color: C.defensa },
-        ],
-      },
       transicion: {
         description: 'Salida rápida con la mano o el pie. Busca los laterales o los mediocampistas por los costados. Nunca al centro si hay presión.',
         arrows: [
